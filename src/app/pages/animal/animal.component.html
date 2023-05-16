@@ -1,0 +1,24 @@
+<div class="max-w-screen-xl flex flex-col items-center mx-auto p-4">
+    <div class="w-full my-[100px]">
+        <div class="w-full text-right">
+            <button (click)="toggleModal()" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
+                <p class="text-sm font-medium leading-none text-white">Agregar animal</p>
+            </button>
+        </div>
+        <app-table
+            [headers]="headerTable"
+            [data]="animals"
+            (toggleModalUpdate)="toggleModalUpdate($event)"
+            (handlerSubmitDelete)="handlerSubmitDelete($event)"
+        ></app-table>
+    </div>
+</div>
+<app-modal 
+    [title]="title"
+    [showSelect]="showSelect"
+    [dataObject]="data"
+    [showModal]="showModal" 
+    [breeds]="breeds"
+    (toggleModalEmitter)="toggleModal()"
+    (handlerSubmit)="handlerSubmit()"
+></app-modal>
